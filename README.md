@@ -180,6 +180,9 @@ Run the Ansible playbook to configure the infrastructure:
 ```bash
 ansible-playbook playbook.yaml
 ```
+#### Install Kubernetes on `Kmaster, KWorker 1, Kworker 2`
+> [!NOTE]
+> Available in the Repository with the name of the ***play.yaml***
 ## Monitoring and Analytics
 ### **Step 4: Install Prometheus & Grafana**
 #### Install Prometheus:
