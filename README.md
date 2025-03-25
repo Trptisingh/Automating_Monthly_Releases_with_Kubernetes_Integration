@@ -117,7 +117,11 @@ terraform init
 terraform plan
 terraform apply
 ```
-
+> [!IMPORTANT]  
+> **Infrastructure as Code (IaC)**  
+> This project utilizes **Terraform** for provisioning infrastructure and **Ansible** for automated configuration.  
+> - Ensures consistent, scalable, and repeatable deployments.  
+> - Reduces manual intervention.  
 ---
 ## Configuration
 ### **Step 2: Install Ansible & Configure Cluster**
@@ -136,6 +140,9 @@ sudo cat ~/.ssh/id_rsa.pub
 ```
 Copy the key to `~/.ssh/authorized_keys` on **Kmaster, Kslave1, Kslave2**.
 
+> [!IMPORTANT]  
+> **Security & Access Control**  
+> - **SSH Key-Based Authentication** for server access.  
 #### Configure Ansible Inventory (`/etc/ansible/hosts`):
 ```ini
 [kmaster]
@@ -152,7 +159,6 @@ ansible -m ping all
 ```
 
 ---
-## CI/CD Pipeline
 ### **Step 3: Deploy Jenkins & Kubernetes**
 
 The installation process is automated using an **Ansible playbook (`playbook.yaml`)**. Below are the required setup scripts, which are available in the repository.
@@ -183,6 +189,11 @@ ansible-playbook playbook.yaml
 #### Install Kubernetes on `Kmaster, KWorker 1, Kworker 2`
 > [!NOTE]
 > Available in the Repository with the name of the ***play.yaml***
+> [!IMPORTANT]  
+> **Scalability & High Availability**  
+> Kubernetes ensures:  
+> - **Dynamic scaling** & **load balancing**  
+> - **High availability** & **fault tolerance**  
 
 ### **Step 4: Create Required Deployment Files**  
 After successfully running the Ansible playbook, create the following files for deployment:  
@@ -218,7 +229,9 @@ After creating the deployment files, set up Jenkins for seamless integration wit
 4. Click **Save** to store the credentials securely.  
 
 ---
-
+> [!IMPORTANT]  
+> **Security & Access Control**  
+> - **Jenkins Credentials Management** secures secrets & environment variables.  
 ### **Step 6: Create a Jenkins Pipeline Job**  
 Now, set up a Jenkins Pipeline job to automate the deployment process.  
 
@@ -238,7 +251,10 @@ Now, set up a Jenkins Pipeline job to automate the deployment process.
 5. Save the job
 ---
 ---
-
+> [!IMPORTANT]  
+> **CI/CD Automation**  
+> **Jenkins** powers the CI/CD pipeline with automated build, testing, and deployment.  
+> - Integrates with **Git, Docker, and Kubernetes** to streamline releases.  
 ### **Step 7: Launch Worker Nodes & Connect to Cluster**  
 After setting up the Jenkins pipeline, launch the remaining Kubernetes worker nodes and add them as slaves to the cluster.  
 
@@ -248,7 +264,11 @@ After setting up the Jenkins pipeline, launch the remaining Kubernetes worker no
 3. Connect both nodes to the Kubernetes cluster using `kubeadm join` (available in the setup script).  
 
 ---
-
+> [!IMPORTANT]  
+> **Kubernetes Orchestration**  
+> Kubernetes manages and scales containerized applications.  
+> - **Kmaster**: Control plane  
+> - **Kslave1 & Kslave2**: Handle workloads efficiently  
 ### **Step 8: Run the Jenkins Job**  
 Now that all components are in place, trigger the Jenkins pipeline job to deploy the application.  
 
@@ -273,6 +293,11 @@ tar xvfz prometheus-2.34.0.linux-amd64.tar.gz
 cd prometheus-2.34.0.linux-amd64
 ./prometheus --config.file=prometheus.yml
 ```
+> [!IMPORTANT]  
+> **Monitoring & Logging**  
+> Real-time monitoring with **Prometheus** & visual analytics with **Grafana**.  
+> - Proactive issue detection  
+> - Performance tracking  
 
 #### Install Grafana:
 ```bash
@@ -290,40 +315,3 @@ sudo systemctl enable grafana-server
 
 ## Conclusion
 By integrating Terraform, Ansible, Jenkins, Kubernetes, and monitoring tools, this project establishes an efficient CI/CD pipeline for automating monthly releases with Kubernetes. This setup ensures scalable deployments, seamless automation, and real-time monitoring, boosting software delivery efficiency.
-
-> [!IMPORTANT]  
-> **Infrastructure as Code (IaC)**  
-> This project utilizes **Terraform** for provisioning infrastructure and **Ansible** for automated configuration.  
-> - Ensures consistent, scalable, and repeatable deployments.  
-> - Reduces manual intervention.  
-
-> [!IMPORTANT]  
-> **CI/CD Automation**  
-> **Jenkins** powers the CI/CD pipeline with automated build, testing, and deployment.  
-> - Integrates with **Git, Docker, and Kubernetes** to streamline releases.  
-
-> [!IMPORTANT]  
-> **Kubernetes Orchestration**  
-> Kubernetes manages and scales containerized applications.  
-> - **Kmaster**: Control plane  
-> - **Kslave1 & Kslave2**: Handle workloads efficiently  
-
-> [!IMPORTANT]  
-> **Monitoring & Logging**  
-> Real-time monitoring with **Prometheus** & visual analytics with **Grafana**.  
-> - Proactive issue detection  
-> - Performance tracking  
-
-> [!IMPORTANT]  
-> **Security & Access Control**  
-> - **SSH Key-Based Authentication** for server access.  
-> - **RBAC in Kubernetes** restricts user permissions.  
-> - **Jenkins Credentials Management** secures secrets & environment variables.  
-
-> [!IMPORTANT]  
-> **Scalability & High Availability**  
-> Kubernetes ensures:  
-> - **Dynamic scaling** & **load balancing**  
-> - **High availability** & **fault tolerance**  
-
-
