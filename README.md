@@ -157,14 +157,27 @@ ansible -m ping all
 
 The installation process is automated using an **Ansible playbook (`playbook.yaml`)**. Below are the required setup scripts, which are available in the repository.
 
-#### 📌 Install Java, Jenkins & Docker on `Jenkins_Terraform_Ansible`
+#### Install Java, Jenkins & Docker on `Jenkins_Terraform_Ansible`
 > 📜 **Note:** The installation is managed by the script [`Jenkins_terraform_ansible.sh`](./Jenkins_terraform_ansible.sh).  
 
-#### 📌 Install Java & Docker on `Kmaster`
+#### Install Java & Docker on `Kmaster`
 > 📜 **Note:** The installation is managed by the script [`Kmaster.sh`](./Kmaster.sh).  
 
 These scripts are executed through **Ansible (`playbook.yaml`)**, ensuring automated deployment across the infrastructure.  
+---
 
+### **🔧 Run Ansible Playbook**
+Once the inventory and playbook are properly configured, run the Ansible playbook with the following commands:
+
+```bash
+# Perform a syntax check before execution
+ansible-playbook playbook.yaml --syntax-check
+
+# Perform a dry run (check mode) without making changes
+ansible-playbook playbook.yaml --check
+
+# Execute the playbook to configure the infrastructure
+ansible-playbook playbook.yaml
 
 #### Install Kubernetes on `Kmaster` & `Kslave`:
 > [!NOTE]
