@@ -9,8 +9,11 @@
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-1.22-blue?style=flat-square&logo=kubernetes)
 ![Prometheus](https://img.shields.io/badge/Monitoring-Prometheus-red?style=flat-square&logo=prometheus)
 ![Grafana](https://img.shields.io/badge/Dashboard-Grafana-yellow?style=flat-square&logo=grafana)
+![Git](https://img.shields.io/badge/Git-Version%20Control-orange?style=flat-square&logo=git)
+![Docker](https://img.shields.io/badge/Docker-Containerization-blue?style=flat-square&logo=docker)
+![Bash](https://img.shields.io/badge/Bash-Scripting-green?style=flat-square&logo=gnu-bash)
 
-This project focuses on automating the deployment and release cycle using Terraform, Ansible, Jenkins, and Kubernetes. It provisions infrastructure using Terraform, configures instances with Ansible, sets up a Jenkins CI/CD pipeline, and integrates Kubernetes for scalable deployments.
+This project automates the deployment and release cycle using Terraform, Ansible, Jenkins, and Kubernetes. It provisions Terraform infrastructure, configures instances with Ansible, sets up a Jenkins CI/CD pipeline, and integrates Kubernetes for scalable deployments.
 
 ---
 ## Table of Contents
@@ -21,13 +24,75 @@ This project focuses on automating the deployment and release cycle using Terraf
 - [Monitoring and Analytics](#monitoring-and-analytics)
 - [Conclusion](#conclusion)
 
+## Project Requirements  
+
+### **1. Infrastructure Requirements**  
+To ensure seamless deployment and automation, the following infrastructure components are required:  
+
+#### **Compute Instances**  
+- **Jenkins_Terraform_Ansible Node** (Automation & Provisioning)  
+  - Minimum: 4 vCPUs, 8GB RAM  
+  - Storage: 50GB SSD  
+  - OS: Ubuntu 22.04 / CentOS 8  
+- **Kubernetes Master Node (Kmaster)**  
+  - Minimum: 4 vCPUs, 16GB RAM  
+  - Storage: 100GB SSD  
+  - OS: Ubuntu 22.04 / CentOS 8  
+- **Kubernetes Worker Nodes (Kslave1 & Kslave2)**  
+  - Minimum: 4 vCPUs, 8GB RAM  
+  - Storage: 100GB SSD each  
+  - OS: Ubuntu 22.04 / CentOS 8  
+
+#### **Networking & Security**  
+- All nodes must have private IP connectivity.  
+- **Firewall Rules:**  
+  - Open ports for Jenkins (`8080`), Kubernetes API (`6443`), Prometheus (`9090`), and Grafana (`3000`).  
+  - Enable SSH access (`22`) for remote management.  
+- VPC/Subnet configuration for Kubernetes networking.  
+
 ---
-## Infrastructure Setup
-### Instances & Roles
-1. **Jenkins_Terraform_Ansible** - Manages automation and infrastructure provisioning.
-2. **Kmaster** - Kubernetes Master Node.
-3. **Kslave1** - Kubernetes Worker Node 1.
-4. **Kslave2** - Kubernetes Worker Node 2.
+
+### **2. Software & Tools Requirements**  
+
+#### **Infrastructure as Code (IaC)**  
+- **Terraform (v0.14+)** – For provisioning cloud infrastructure.  
+- **Ansible (v2.9+)** – For automated configuration management.  
+
+#### **CI/CD Pipeline**  
+- **Jenkins** – For continuous integration & deployment.  
+- **Git** – For version control and repository management.  
+- **Docker** – For containerized builds and deployments.  
+
+#### **Kubernetes Ecosystem**  
+- **Kubernetes (v1.22+)** – For container orchestration.  
+- **Kubectl** – For managing Kubernetes clusters.  
+- **Kubeadm** – For Kubernetes cluster setup.  
+
+#### **Monitoring & Logging**  
+- **Prometheus** – For system monitoring & alerting.  
+- **Grafana** – For visualizing performance metrics.  
+
+---
+
+### **3. Access & Authentication Requirements**  
+- **SSH Key-Based Authentication** must be enabled between nodes.  
+- **Jenkins User Permissions** must allow pipeline execution & deployment.  
+- **Kubernetes Role-Based Access Control (RBAC)** must be configured for secure cluster operations.  
+
+---
+
+This **Project Requirements** section ensures clarity in the setup and prevents future scalability or security issues.
+---
+## 🚀 Infrastructure Setup  
+
+### 🏗️ Instances & Roles  
+
+| Instance                        | Role & Responsibilities                                  |
+|----------------------------------|----------------------------------------------------------|
+| **🛠️ Jenkins_Terraform_Ansible** | Manages automation, infrastructure provisioning, and CI/CD pipeline. |
+| **📌 Kmaster**                   | Kubernetes Master Node – Controls cluster management and API server. |
+| **📌 Kslave1**                   | Kubernetes Worker Node 1 – Runs workloads and manages containerized applications. |
+| **📌 Kslave2**                   | Kubernetes Worker Node 2 – Ensures load distribution and scalability. |
 
 ### Networking Requirements
 - Ensure all nodes can communicate over SSH and required ports.
