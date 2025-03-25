@@ -34,50 +34,50 @@ To ensure seamless deployment and automation, the following infrastructure compo
 
 | Instance                         | Role & Purpose                          | CPU  | RAM   | Storage  | OS                  |
 |----------------------------------|------------------------------------|------|------|---------|--------------------|
-| ** Jenkins_Terraform_Ansible** | Automation & Provisioning           | 4 vCPUs  | 8GB   | 50GB SSD  | Ubuntu 22.04 / CentOS 8  |
-| ** Kubernetes Master (Kmaster)** | Controls Kubernetes Cluster        | 4 vCPUs  | 16GB  | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
-| ** Kubernetes Worker (Kslave1)** | Runs containerized applications    | 4 vCPUs  | 8GB   | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
-| ** Kubernetes Worker (Kslave2)** | Ensures load balancing & scaling  | 4 vCPUs  | 8GB   | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
+| **Jenkins_Terraform_Ansible** | Automation & Provisioning           | 4 vCPUs  | 8GB   | 50GB SSD  | Ubuntu 22.04 / CentOS 8  |
+| **Kubernetes Master (Kmaster)** | Controls Kubernetes Cluster        | 4 vCPUs  | 16GB  | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
+| **Kubernetes Worker (Kslave1)** | Runs containerized applications    | 4 vCPUs  | 8GB   | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
+| **Kubernetes Worker (Kslave2)** | Ensures load balancing & scaling  | 4 vCPUs  | 8GB   | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
 
 ### 🌐 Networking & Security  
 
-- 🔗 **Private IP Connectivity** – All nodes must communicate securely.  
-- 🔥 **Firewall Rules:**  
-  - 🟢 **Jenkins:** `8080`  
-  - 🟢 **Kubernetes API:** `6443`  
-  - 🟢 **Prometheus:** `9090`  
-  - 🟢 **Grafana:** `3000`  
-  - 🟢 **SSH Access:** `22` (for remote management)  
-- 🏗️ **VPC/Subnet Configuration** – For Kubernetes networking.  
+- **Private IP Connectivity** – All nodes must communicate securely.  
+- **Firewall Rules:**  
+  - **Jenkins:** `8080`  
+  - **Kubernetes API:** `6443`  
+  - **Prometheus:** `9090`  
+  - **Grafana:** `3000`  
+  - **SSH Access:** `22` (for remote management)  
+- **VPC/Subnet Configuration** – For Kubernetes networking.  
 
 ---
 
 ## 🛠️ 2. Software & Tools Requirements  
 
-### ⚙️ Infrastructure as Code (IaC)  
-- 🟣 **Terraform (v0.14+)** – Infrastructure provisioning.  
-- 🔴 **Ansible (v2.9+)** – Automated configuration management.  
+### Infrastructure as Code (IaC)  
+- **Terraform (v0.14+)** – Infrastructure provisioning.  
+-  **Ansible (v2.9+)** – Automated configuration management.  
 
-### 🚀 CI/CD Pipeline  
-- 🔧 **Jenkins** – Continuous Integration & Deployment.  
-- 🔗 **Git** – Version control & repository management.  
-- 🐳 **Docker** – Containerized builds & deployments.  
+### CI/CD Pipeline  
+- **Jenkins** – Continuous Integration & Deployment.  
+-  **Git** – Version control & repository management.  
+- **Docker** – Containerized builds & deployments.  
 
-### ☸️ Kubernetes Ecosystem  
-- 🔵 **Kubernetes (v1.22+)** – Container orchestration.  
-- 📌 **Kubectl** – Kubernetes cluster management.  
-- 📦 **Kubeadm** – Kubernetes cluster setup.  
+### Kubernetes Ecosystem  
+- **Kubernetes (v1.22+)** – Container orchestration.  
+- **Kubectl** – Kubernetes cluster management.  
+- **Kubeadm** – Kubernetes cluster setup.  
 
-### 📊 Monitoring & Logging  
-- 🔴 **Prometheus** – System monitoring & alerting.  
-- 🟡 **Grafana** – Performance visualization dashboard.  
+### Monitoring & Logging  
+-  **Prometheus** – System monitoring & alerting.  
+-  **Grafana** – Performance visualization dashboard.  
 
 ---
 
 ## 🔐 3. Access & Authentication Requirements  
-- 🔑 **SSH Key-Based Authentication** – Secure communication between nodes.  
-- 🔧 **Jenkins User Permissions** – Grant access for pipeline execution.  
-- 🔒 **Kubernetes RBAC (Role-Based Access Control)** – Secure cluster operations.  
+-  **SSH Key-Based Authentication** – Secure communication between nodes.  
+-  **Jenkins User Permissions** – Grant access for pipeline execution.  
+- **Kubernetes RBAC (Role-Based Access Control)** – Secure cluster operations.  
 
 ---
 
@@ -85,14 +85,14 @@ To ensure seamless deployment and automation, the following infrastructure compo
 ---
 ## 🚀 Infrastructure Setup  
 
-### 🏗️ Instances & Roles  
+###  Instances & Roles  
 
 | Instance                        | Role & Responsibilities                                  |
 |----------------------------------|----------------------------------------------------------|
-| **🛠️ Jenkins_Terraform_Ansible** | Manages automation, infrastructure provisioning, and CI/CD pipeline. |
-| **📌 Kmaster**                   | Kubernetes Master Node – Controls cluster management and API server. |
-| **📌 Kslave1**                   | Kubernetes Worker Node 1 – Runs workloads and manages containerized applications. |
-| **📌 Kslave2**                   | Kubernetes Worker Node 2 – Ensures load distribution and scalability. |
+| **Jenkins_Terraform_Ansible** | Manages automation, infrastructure provisioning, and CI/CD pipeline. |
+| **Kmaster**                   | Kubernetes Master Node – Controls cluster management and API server. |
+| **Kslave1**                   | Kubernetes Worker Node 1 – Runs workloads and manages containerized applications. |
+| **Kslave2**                   | Kubernetes Worker Node 2 – Ensures load distribution and scalability. |
 
 ### Networking Requirements
 - Ensure all nodes can communicate over SSH and required ports.
