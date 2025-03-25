@@ -24,64 +24,64 @@ This project automates the deployment and release cycle using Terraform, Ansible
 - [Monitoring and Analytics](#monitoring-and-analytics)
 - [Conclusion](#conclusion)
 
-## Project Requirements  
+# 📌 Project Requirements  
 
-### **1. Infrastructure Requirements**  
+## 🏗️ 1. Infrastructure Requirements  
+
 To ensure seamless deployment and automation, the following infrastructure components are required:  
 
-#### **Compute Instances**  
-- **Jenkins_Terraform_Ansible Node** (Automation & Provisioning)  
-  - Minimum: 4 vCPUs, 8GB RAM  
-  - Storage: 50GB SSD  
-  - OS: Ubuntu 22.04 / CentOS 8  
-- **Kubernetes Master Node (Kmaster)**  
-  - Minimum: 4 vCPUs, 16GB RAM  
-  - Storage: 100GB SSD  
-  - OS: Ubuntu 22.04 / CentOS 8  
-- **Kubernetes Worker Nodes (Kslave1 & Kslave2)**  
-  - Minimum: 4 vCPUs, 8GB RAM  
-  - Storage: 100GB SSD each  
-  - OS: Ubuntu 22.04 / CentOS 8  
+### 🖥️ Compute Instances  
 
-#### **Networking & Security**  
-- All nodes must have private IP connectivity.  
-- **Firewall Rules:**  
-  - Open ports for Jenkins (`8080`), Kubernetes API (`6443`), Prometheus (`9090`), and Grafana (`3000`).  
-  - Enable SSH access (`22`) for remote management.  
-- VPC/Subnet configuration for Kubernetes networking.  
+| Instance                         | Role & Purpose                          | CPU  | RAM   | Storage  | OS                  |
+|----------------------------------|------------------------------------|------|------|---------|--------------------|
+| **🛠️ Jenkins_Terraform_Ansible** | Automation & Provisioning           | 4 vCPUs  | 8GB   | 50GB SSD  | Ubuntu 22.04 / CentOS 8  |
+| **📌 Kubernetes Master (Kmaster)** | Controls Kubernetes Cluster        | 4 vCPUs  | 16GB  | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
+| **📌 Kubernetes Worker (Kslave1)** | Runs containerized applications    | 4 vCPUs  | 8GB   | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
+| **📌 Kubernetes Worker (Kslave2)** | Ensures load balancing & scaling  | 4 vCPUs  | 8GB   | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
 
----
+### 🌐 Networking & Security  
 
-### **2. Software & Tools Requirements**  
-
-#### **Infrastructure as Code (IaC)**  
-- **Terraform (v0.14+)** – For provisioning cloud infrastructure.  
-- **Ansible (v2.9+)** – For automated configuration management.  
-
-#### **CI/CD Pipeline**  
-- **Jenkins** – For continuous integration & deployment.  
-- **Git** – For version control and repository management.  
-- **Docker** – For containerized builds and deployments.  
-
-#### **Kubernetes Ecosystem**  
-- **Kubernetes (v1.22+)** – For container orchestration.  
-- **Kubectl** – For managing Kubernetes clusters.  
-- **Kubeadm** – For Kubernetes cluster setup.  
-
-#### **Monitoring & Logging**  
-- **Prometheus** – For system monitoring & alerting.  
-- **Grafana** – For visualizing performance metrics.  
+- 🔗 **Private IP Connectivity** – All nodes must communicate securely.  
+- 🔥 **Firewall Rules:**  
+  - 🟢 **Jenkins:** `8080`  
+  - 🟢 **Kubernetes API:** `6443`  
+  - 🟢 **Prometheus:** `9090`  
+  - 🟢 **Grafana:** `3000`  
+  - 🟢 **SSH Access:** `22` (for remote management)  
+- 🏗️ **VPC/Subnet Configuration** – For Kubernetes networking.  
 
 ---
 
-### **3. Access & Authentication Requirements**  
-- **SSH Key-Based Authentication** must be enabled between nodes.  
-- **Jenkins User Permissions** must allow pipeline execution & deployment.  
-- **Kubernetes Role-Based Access Control (RBAC)** must be configured for secure cluster operations.  
+## 🛠️ 2. Software & Tools Requirements  
+
+### ⚙️ Infrastructure as Code (IaC)  
+- 🟣 **Terraform (v0.14+)** – Infrastructure provisioning.  
+- 🔴 **Ansible (v2.9+)** – Automated configuration management.  
+
+### 🚀 CI/CD Pipeline  
+- 🔧 **Jenkins** – Continuous Integration & Deployment.  
+- 🔗 **Git** – Version control & repository management.  
+- 🐳 **Docker** – Containerized builds & deployments.  
+
+### ☸️ Kubernetes Ecosystem  
+- 🔵 **Kubernetes (v1.22+)** – Container orchestration.  
+- 📌 **Kubectl** – Kubernetes cluster management.  
+- 📦 **Kubeadm** – Kubernetes cluster setup.  
+
+### 📊 Monitoring & Logging  
+- 🔴 **Prometheus** – System monitoring & alerting.  
+- 🟡 **Grafana** – Performance visualization dashboard.  
 
 ---
 
-This **Project Requirements** section ensures clarity in the setup and prevents future scalability or security issues.
+## 🔐 3. Access & Authentication Requirements  
+- 🔑 **SSH Key-Based Authentication** – Secure communication between nodes.  
+- 🔧 **Jenkins User Permissions** – Grant access for pipeline execution.  
+- 🔒 **Kubernetes RBAC (Role-Based Access Control)** – Secure cluster operations.  
+
+---
+
+
 ---
 ## 🚀 Infrastructure Setup  
 
@@ -155,35 +155,12 @@ ansible -m ping all
 ## CI/CD Pipeline
 ### **Step 3: Deploy Jenkins & Kubernetes**
 #### Install Jenkins & Docker on `Jenkins_Terraform_Ansible`:
-```bash
-sudo apt update
-sudo apt install openjdk-17-jre -y
-download Jenkins
-wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
-echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
-sudo apt update
-sudo apt install jenkins -y
-sudo apt install docker.io -y
-```
+> [!NOTE]
+> Available in the Repository with the name of the ***Jenkins_terraform_ansible.sh***
 
 #### Install Kubernetes on `Kmaster` & `Kslave`:
-```bash
-sudo apt update
-sudo apt install -y apt-transport-https ca-certificates curl
-```
-
-#### Initialize Kubernetes Cluster on `Kmaster`:
-```bash
-sudo kubeadm init --pod-network-cidr=192.168.1.0/16
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-```
-
-#### Join Worker Nodes (`KslaveX`) to Cluster:
-```bash
-kubeadm join <Kmaster-IP>:6443 --token <TOKEN> --discovery-token-ca-cert-hash <HASH>
-```
+> [!NOTE]
+> Script Available in the Repository with the name of the ***K8s_intallation.sh***
 
 ---
 ## Monitoring and Analytics
