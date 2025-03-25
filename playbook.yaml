@@ -1,0 +1,14 @@
+---
+- name: Installations on Master
+  hosts: localhost
+  become: true
+  tasks:
+  - name: Executing script on master
+    script: Jenkins_terraform_ansible.sh
+
+- name: Installations on test   
+  hosts: test   
+  become: true
+  tasks:
+  - name: Executing script on test   
+    script: K-master.sh
