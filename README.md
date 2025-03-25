@@ -290,41 +290,40 @@ sudo systemctl enable grafana-server
 
 ## Conclusion
 By integrating Terraform, Ansible, Jenkins, Kubernetes, and monitoring tools, this project establishes an efficient CI/CD pipeline for automating monthly releases with Kubernetes. This setup ensures scalable deployments, seamless automation, and real-time monitoring, boosting software delivery efficiency.
-# 📌 Important Sections
 
-[!IMPORTANT]
+> [!IMPORTANT]  
 > **Infrastructure as Code (IaC)**  
 > This project utilizes **Terraform** for provisioning infrastructure and **Ansible** for automated configuration.  
 > - Ensures consistent, scalable, and repeatable deployments.  
 > - Reduces manual intervention.  
 
-[!IMPORTANT]
+> [!IMPORTANT]  
 > **CI/CD Automation**  
 > **Jenkins** powers the CI/CD pipeline with automated build, testing, and deployment.  
 > - Integrates with **Git, Docker, and Kubernetes** to streamline releases.  
 
-[!IMPORTANT]
+> [!IMPORTANT]  
 > **Kubernetes Orchestration**  
 > Kubernetes manages and scales containerized applications.  
 > - **Kmaster**: Control plane  
 > - **Kslave1 & Kslave2**: Handle workloads efficiently  
 
-[!IMPORTANT]
+> [!IMPORTANT]  
 > **Monitoring & Logging**  
 > Real-time monitoring with **Prometheus** & visual analytics with **Grafana**.  
 > - Proactive issue detection  
 > - Performance tracking  
 
-[!IMPORTANT]
+> [!IMPORTANT]  
 > **Security & Access Control**  
 > - **SSH Key-Based Authentication** for server access.  
 > - **RBAC in Kubernetes** restricts user permissions.  
 > - **Jenkins Credentials Management** secures secrets & environment variables.  
 
-[!IMPORTANT]
+> [!IMPORTANT]  
 > **Scalability & High Availability**  
 > Kubernetes ensures:  
 > - **Dynamic scaling** & **load balancing**  
 > - **High availability** & **fault tolerance**  
-> - Reduced downtime risks  
+
 
