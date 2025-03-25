@@ -183,6 +183,20 @@ ansible-playbook playbook.yaml
 #### Install Kubernetes on `Kmaster, KWorker 1, Kworker 2`
 > [!NOTE]
 > Available in the Repository with the name of the ***play.yaml***
+
+### **📂 Step 4: Create Required Deployment Files**  
+After successfully running the Ansible playbook, create the following files for deployment:  
+
+📝 **1. [Dockerfile](./Dockerfile)**  
+Defines the container image configuration for the application.  
+
+📝 **2. [deploy.yml](./deploy.yml)**  
+Kubernetes deployment file to manage application deployment.  
+
+📝 **3. [SVC.yml](./SVC.yml)**  
+Kubernetes service file to expose the application within the cluster.  
+
+
 ## Monitoring and Analytics
 ### **Step 4: Install Prometheus & Grafana**
 #### Install Prometheus:
