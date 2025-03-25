@@ -24,7 +24,7 @@ This project automates the deployment and release cycle using Terraform, Ansible
 - [Monitoring and Analytics](#monitoring-and-analytics)
 - [Conclusion](#conclusion)
 
-# 📌 Project Requirements  
+# Project Requirements  
 
 ## 🏗️ 1. Infrastructure Requirements  
 
@@ -34,10 +34,10 @@ To ensure seamless deployment and automation, the following infrastructure compo
 
 | Instance                         | Role & Purpose                          | CPU  | RAM   | Storage  | OS                  |
 |----------------------------------|------------------------------------|------|------|---------|--------------------|
-| **🛠️ Jenkins_Terraform_Ansible** | Automation & Provisioning           | 4 vCPUs  | 8GB   | 50GB SSD  | Ubuntu 22.04 / CentOS 8  |
-| **📌 Kubernetes Master (Kmaster)** | Controls Kubernetes Cluster        | 4 vCPUs  | 16GB  | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
-| **📌 Kubernetes Worker (Kslave1)** | Runs containerized applications    | 4 vCPUs  | 8GB   | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
-| **📌 Kubernetes Worker (Kslave2)** | Ensures load balancing & scaling  | 4 vCPUs  | 8GB   | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
+| ** Jenkins_Terraform_Ansible** | Automation & Provisioning           | 4 vCPUs  | 8GB   | 50GB SSD  | Ubuntu 22.04 / CentOS 8  |
+| ** Kubernetes Master (Kmaster)** | Controls Kubernetes Cluster        | 4 vCPUs  | 16GB  | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
+| ** Kubernetes Worker (Kslave1)** | Runs containerized applications    | 4 vCPUs  | 8GB   | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
+| ** Kubernetes Worker (Kslave2)** | Ensures load balancing & scaling  | 4 vCPUs  | 8GB   | 100GB SSD | Ubuntu 22.04 / CentOS 8  |
 
 ### 🌐 Networking & Security  
 
