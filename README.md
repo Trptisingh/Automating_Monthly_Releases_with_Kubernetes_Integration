@@ -164,18 +164,18 @@ The installation process is automated using an **Ansible playbook (`playbook.yam
 > 📜 **Note:** The installation is managed by the script [`Kmaster.sh`](./Kmaster.sh).  
 ---
 
-### **Step 1: Perform Syntax Check**
+#### Perform Syntax Check
 Before running the playbook, check for any syntax errors:
 
 ```bash
 ansible-playbook playbook.yaml --syntax-check
 ```
-### **Step 2: Dry Run (Check Mode)**
+#### Dry Run (Check Mode)
 Perform a dry run to preview the changes without applying them:
 ```bash
 ansible-playbook playbook.yaml --check
 ```
-### **Step 3: Execute the Playbook**
+#### Execute the Playbook
 Run the Ansible playbook to configure the infrastructure:
 ```bash
 ansible-playbook playbook.yaml
