@@ -154,9 +154,17 @@ ansible -m ping all
 ---
 ## CI/CD Pipeline
 ### **Step 3: Deploy Jenkins & Kubernetes**
-#### Install Jenkins & Docker on `Jenkins_Terraform_Ansible`:
-> [!NOTE]
-> Available in the Repository with the name of the ***Jenkins_terraform_ansible.sh***
+
+The installation process is automated using an **Ansible playbook (`playbook.yaml`)**. Below are the required setup scripts, which are available in the repository.
+
+#### 📌 Install Java, Jenkins & Docker on `Jenkins_Terraform_Ansible`
+> 📜 **Note:** The installation is managed by the script [`Jenkins_terraform_ansible.sh`](./Jenkins_terraform_ansible.sh).  
+
+#### 📌 Install Java & Docker on `Kmaster`
+> 📜 **Note:** The installation is managed by the script [`Kmaster.sh`](./Kmaster.sh).  
+
+These scripts are executed through **Ansible (`playbook.yaml`)**, ensuring automated deployment across the infrastructure.  
+
 
 #### Install Kubernetes on `Kmaster` & `Kslave`:
 > [!NOTE]
