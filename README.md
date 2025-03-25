@@ -205,11 +205,11 @@ After creating the deployment files, set up Jenkins for seamless integration wit
 
 > 📜 **Note:** Ensure Jenkins is installed and accessible before proceeding.  
 
-#### **🔹 Open Jenkins Dashboard and Add K-Master Machine**  
+#### **Open Jenkins Dashboard and Add K-Master Machine**  
 1. Navigate to the **Jenkins Dashboard**.  
 2. Add the **K-Master** machine as a node for deployment.  
 
-#### **🔹 Configure DockerHub Credentials in Jenkins**  
+#### **Configure DockerHub Credentials in Jenkins**  
 1. Go to **Manage Jenkins** → **Credentials**.  
 2. Click on **Global Credentials (unrestricted)**.  
 3. Click **Add Credentials** and select:  
@@ -224,11 +224,11 @@ Now, set up a Jenkins Pipeline job to automate the deployment process.
 
 > 📜 **Note:** The pipeline script is available in the repository with the name **[Jenkins_pipeline.groovy](./Jenkins_pipeline.groovy)**.  
 
-#### ** Create a New Pipeline Job in Jenkins**  
+#### **Create a New Pipeline Job in Jenkins**  
 1. Open the **Jenkins Dashboard**.  
 2. Click on **New Item** → Select **Pipeline** → Provide a Job Name → Click **OK**.  
 
-#### ** Configure the Pipeline Script**  
+#### **Configure the Pipeline Script**  
 1. Scroll to the **Pipeline** section.  
 2. Select **Pipeline Script from SCM** if using a repository.  
 3. Choose **Git** and provide the repository URL.  
