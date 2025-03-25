@@ -184,7 +184,7 @@ ansible-playbook playbook.yaml
 > [!NOTE]
 > Available in the Repository with the name of the ***play.yaml***
 
-### **📂 Step 4: Create Required Deployment Files**  
+### **Step 4: Create Required Deployment Files**  
 After successfully running the Ansible playbook, create the following files for deployment:  
 
 📝 **1. [Dockerfile](./Dockerfile)**  
@@ -200,7 +200,7 @@ Kubernetes service file to expose the application within the cluster.
 
 ---
 
-### **🛠 Step 5: Configure Jenkins for Deployment**  
+### **Step 5: Configure Jenkins for Deployment**  
 After creating the deployment files, set up Jenkins for seamless integration with Kubernetes.  
 
 > 📜 **Note:** Ensure Jenkins is installed and accessible before proceeding.  
@@ -219,7 +219,7 @@ After creating the deployment files, set up Jenkins for seamless integration wit
 
 ---
 
-### ** Step 6: Create a Jenkins Pipeline Job**  
+### **Step 6: Create a Jenkins Pipeline Job**  
 Now, set up a Jenkins Pipeline job to automate the deployment process.  
 
 > 📜 **Note:** The pipeline script is available in the repository with the name **[Jenkins_pipeline.groovy](./Jenkins_pipeline.groovy)**.  
