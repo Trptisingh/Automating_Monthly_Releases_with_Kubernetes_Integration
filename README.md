@@ -237,9 +237,35 @@ Now, set up a Jenkins Pipeline job to automate the deployment process.
    Jenkins_pipeline.groovy
 5. Save the job
 ---
+---
+
+### **Step 7: Launch Worker Nodes & Connect to Cluster**  
+After setting up the Jenkins pipeline, launch the remaining Kubernetes worker nodes and add them as slaves to the cluster.  
+
+#### **Launch `Kslave1` & `Kslave2` Machines**  
+1. Start the `Kslave1` and `Kslave2` instances.  
+2. Ensure they have the required dependencies installed.  
+3. Connect both nodes to the Kubernetes cluster using `kubeadm join` (available in the setup script).  
+
+---
+
+### **Step 8: Run the Jenkins Job**  
+Now that all components are in place, trigger the Jenkins pipeline job to deploy the application.  
+
+#### **Push the Master Branch & Trigger Deployment**  
+1. Push the latest changes to the **master branch** in the repository.  
+2. Open the **Jenkins Dashboard**.  
+3. Navigate to the configured **Pipeline Job**.  
+4. Click **Build Now** to start the deployment process.  
+5. Monitor the **Console Output** to track the progress.  
+
+> 📜 **Note:** Ensure all worker nodes are successfully connected before running the job.  
+
+---
+
 
 ## Monitoring and Analytics
-### **Step 4: Install Prometheus & Grafana**
+### **Step 9: Install Prometheus & Grafana**
 #### Install Prometheus:
 ```bash
 wget https://github.com/prometheus/prometheus/releases/download/v2.34.0/prometheus-2.34.0.linux-amd64.tar.gz
