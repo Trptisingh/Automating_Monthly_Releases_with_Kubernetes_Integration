@@ -169,7 +169,17 @@ Before running the playbook, check for any syntax errors:
 
 ```bash
 ansible-playbook playbook.yaml --syntax-check
-
+```
+### **Step 2: Dry Run (Check Mode)**
+Perform a dry run to preview the changes without applying them:
+```bash
+ansible-playbook playbook.yaml --check
+```
+### **Step 3: Execute the Playbook**
+Run the Ansible playbook to configure the infrastructure:
+```bash
+ansible-playbook playbook.yaml
+```
 ## Monitoring and Analytics
 ### **Step 4: Install Prometheus & Grafana**
 #### Install Prometheus:
