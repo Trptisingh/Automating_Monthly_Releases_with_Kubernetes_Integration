@@ -164,7 +164,7 @@ The installation process is automated using an **Ansible playbook (`playbook.yam
 > 📜 **Note:** The installation is managed by the script [`Kmaster.sh`](./Kmaster.sh).  
 ---
 
-### **🔧 Run Ansible Playbook**
+### ** Run Ansible Playbook**
 Once the inventory and playbook are properly configured, run the Ansible playbook with the following commands:
 
 ```bash
@@ -176,11 +176,10 @@ ansible-playbook playbook.yaml --check
 
 # Execute the playbook to configure the infrastructure
 ansible-playbook playbook.yaml
----
-#### Install Kubernetes on `Kmaster` & `Kslave`:
-> [!NOTE]
-> Script Available in the Repository with the name of the ***K8s_intallation.sh***
 
+#### Install Kubernetes on KMaster, KWorker 1, KWorker 2
+> [!NOTE]
+> Available in the Repository with the name of the ***main.tf***
 ---
 ## Monitoring and Analytics
 ### **Step 4: Install Prometheus & Grafana**
