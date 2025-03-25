@@ -184,7 +184,7 @@ ansible-playbook playbook.yaml
 > [!NOTE]
 > Available in the Repository with the name of the ***play.yaml***
 
-### **📂 Step 4: Create Required Deployment Files**  
+### ** Step 4: Create Required Deployment Files**  
 After successfully running the Ansible playbook, create the following files for deployment:  
 
 📝 **1. [Dockerfile](./Dockerfile)**  
@@ -196,6 +196,40 @@ Kubernetes deployment file to manage application deployment.
 📝 **3. [SVC.yml](./SVC.yml)**  
 Kubernetes service file to expose the application within the cluster.  
 
+### **Step 5: Configure Jenkins for Deployment**  
+After creating the deployment files, set up Jenkins for seamless integration with Kubernetes.  
+
+> 📜 **Note:** Ensure Jenkins is installed and accessible before proceeding.  
+
+#### ** Open Jenkins Dashboard and Add K-Master Machine**  
+- Navigate to the **Jenkins Dashboard**.  
+- Add the **K-Master** machine as a node for deployment.  
+
+#### ** Configure DockerHub Credentials in Jenkins**  
+- Go to **Manage Jenkins** → **Credentials**.  
+- Click on **Global Credentials (unrestricted)**.  
+- Click **Add Credentials** and select:  
+  - **Username:** Your DockerHub username  
+  - **Password:** Your DockerHub password  
+- Click **Save** to store the credentials securely.  
+
+### ** Step 6: Create a Jenkins Pipeline Job**  
+Now, set up a Jenkins Pipeline job to automate the deployment process.  
+
+> 📜 **Note:** The pipeline script is available in the repository with the name **Jenkins_pipeline.groovy**.  
+
+#### ** Create a New Pipeline Job in Jenkins**  
+- Open the **Jenkins Dashboard**.  
+- Click on **New Item** → Select **Pipeline** → Provide a Job Name → Click **OK**.  
+
+#### **Configure the Pipeline Script**  
+- Scroll to the **Pipeline** section.  
+- Select **Pipeline Script from SCM** if using a repository.  
+- Choose **Git** and provide the repository URL.  
+- In the **Script Path**, enter the pipeline script name:  
+  ```plaintext
+  Jenkins_pipeline.groovy
+- Save the job.
 
 ## Monitoring and Analytics
 ### **Step 4: Install Prometheus & Grafana**
